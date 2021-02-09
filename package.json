@@ -10,14 +10,44 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:k-wx-markdown-editor.helloWorld"
+		"onCommand:k-wx-markdown-editor.helloWorld",
+		"onCommand:k-wx-markdown-editor.showPreview"
 	],
-	"main": "./extension.js",
+	"main": "./plugin.js",
 	"contributes": {
+		"menus": {
+			"editor/title": [{
+				"when": "resourceLangId == markdown",
+				"group": "navigation",
+				"alt": "k-wx-markdown-editor.showPreview",
+				"command": "k-wx-markdown-editor.showPreview"
+			}]
+		},
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "WXMD-editor",
+					"title": "WXMD Editor",
+					"icon": "resources/Transparent_Akkarin.svg"
+				}
+			]
+		},
+		"views": {
+			"WXMD-editor":[
+				{
+					"id": "test",
+					"name": "hello_world"
+				}
+			]
+		},
 		"commands": [
 			{
 				"command": "k-wx-markdown-editor.helloWorld",
 				"title": "Hello World"
+			},
+			{
+				"command": "k-wx-markdown-editor.showPreview",
+				"title": "AAA"
 			}
 		]
 	},
@@ -25,6 +55,9 @@
 		"lint": "eslint .",
 		"pretest": "npm run lint",
 		"test": "node ./test/runTest.js"
+	},
+	"dependencies": {
+		"markdown-it-container": "3.0.0"
 	},
 	"devDependencies": {
 		"@types/vscode": "^1.53.0",
