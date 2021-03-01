@@ -1,30 +1,11 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
-let wxmd = './src/extension';
+// let wxmd = require('./src/md_runtime');
+var md_preview = require('./src/md_preview');
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
-
-function getWebviewContent() {
-	return
-	`
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Cat Coding</title>
-        </head>
-        <body>
-            <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="300" />
-			<div>
-				<span>hello world</span>
-			</div>
-        </body>
-        </html>
-    `;
-}
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -47,39 +28,16 @@ function activate(context) {
 
 	let preview = vscode.commands.registerCommand("k-wx-markdown-editor.showPreview", function() {
 		vscode.window.showInformationMessage('Hello World from k-WX Markdown Editor!');
-
-		const panel = vscode.window.createWebviewPanel(
-			'WXMD-Previewer',
-			'微信MD 预览',
-			vscode.ViewColumn.One,
-			{}
-		)
-
-		panel.webview.html = `
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Cat Coding</title>
-        </head>
-        <body>
-            <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="300" />
-			<div>
-				<span>hello world</span>
-			</div>
-        </body>
-        </html>
-    `;
+		let {panel, interval} = md_preview.initPreviewPage(context);
 	})
 
 	context.subscriptions.push(disposable);
 	context.subscriptions.push(preview)
 
 	return {
-		extendMarkdownIt(md) {
-			return wxmd;
-		}
+		// extendMarkdownIt(md) {
+		// 	return wxmd;
+		// }
 	}
 }
 

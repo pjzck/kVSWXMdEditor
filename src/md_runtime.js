@@ -1,5 +1,8 @@
-import markdownIt from 'markdown-it';
-import list from './plugins/list';
+const markdownIt = require('markdown-it');
+
+// md-it
+const mdBlockQuote = require('./plugins/block_quote');
+// import list from './plugins/list';
 
 // 加载 markdown-it 的渲染子插件
 // import mdHighlight from './js/plugins/highlight';
@@ -18,8 +21,17 @@ let md = markdownIt({
     linkify: false,         // 将类似于 URL 的文本自动转换为超链接
     typographer: false,     // 启用一些语言中里的替换和引号美化
     quotes: '“”‘’'          // typo开启时候的 一般不用考虑
-})
+});
 
-md.use(list)
+// md.use(list);
+mdBlockQuote.apply(md);
 
-export default md;
+// md.use(mdBlockQuote);
+
+function render(str) {
+    return md.render(str);
+}
+
+module.exports = {
+    render
+}

@@ -16,12 +16,14 @@
 	"main": "./plugin.js",
 	"contributes": {
 		"menus": {
-			"editor/title": [{
-				"when": "resourceLangId == markdown",
-				"group": "navigation",
-				"alt": "k-wx-markdown-editor.showPreview",
-				"command": "k-wx-markdown-editor.showPreview"
-			}]
+			"editor/title": [
+				{
+					"when": "resourceLangId == markdown",
+					"group": "navigation",
+					"alt": "k-wx-markdown-editor.showPreview",
+					"command": "k-wx-markdown-editor.showPreview"
+				}
+			]
 		},
 		"viewsContainers": {
 			"activitybar": [
@@ -33,7 +35,7 @@
 			]
 		},
 		"views": {
-			"WXMD-editor":[
+			"WXMD-editor": [
 				{
 					"id": "test",
 					"name": "hello_world"
@@ -54,12 +56,16 @@
 	"scripts": {
 		"lint": "eslint .",
 		"pretest": "npm run lint",
-		"test": "node ./test/runTest.js"
+		"test": "node ./test/runTest.js",
+		"build": "node ./src/build/build.js"
 	},
 	"dependencies": {
+		"markdown-it": "^12.0.4",
+		"markdown-it-imsize": "^2.0.1",
 		"markdown-it-container": "3.0.0"
 	},
 	"devDependencies": {
+		"vscode-page": "0.0.1",
 		"@types/vscode": "^1.53.0",
 		"@types/glob": "^7.1.3",
 		"@types/mocha": "^8.0.4",
@@ -68,6 +74,9 @@
 		"glob": "^7.1.6",
 		"mocha": "^8.2.1",
 		"typescript": "^4.1.3",
-		"vscode-test": "^1.5.0"
+		"vscode-test": "^1.5.0",
+		"less": "^3.11.3",
+		"less-loader": "^6.1.1",
+		"child_process": "1.0.2"
 	}
 }

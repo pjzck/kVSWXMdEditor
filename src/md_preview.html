@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="{{base}}" />
+    <script type="text/javascript">
+        "{{init}}"
+    </script>
+    <!-- <link href="media/css/main.css" rel="stylesheet" />
+    <link href="media/css/preview.css" rel="stylesheet" /> -->
+    {{css_list}}
+</head>
+
+<body>
+    <div class="wxmd-previewer a">
+        <div class="mpe-nav-wrap" id="nav">
+
+        </div>
+
+        <div class="mpe-wrap">
+            <div eclass="mpe-col" class="mpe-preview-col mpe-col b" data-index=2>
+                <div class="mpe-preview-wrap mobile" id="previewContainer">
+                    <div class="mpe-preview" id="preview"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        initEventListener();
+
+        const vscode = acquireVsCodeApi();
+        init();
+
+        function submitRepositories() {
+            if ($("#setting-textarea").val()) {
+                vscode.postMessage({
+                    command: "submitRepositories",
+                    parameters: {
+                        repositories: JSON.parse($("#setting-textarea").val())
+                    }
+                });
+            }
+        }
+
+        function openExtension(extId) {
+            vscode.postMessage({
+                command: "openExtension",
+                parameters: {
+                    extId: extId
+                }
+            });
+        }
+
+        function init() {
+            vscode.postMessage({
+                command: "ready"
+            });
+        }
+
+        function cancelSetting() {
+            init();
+        }
+    </script>
+</body>
+
+</html>
