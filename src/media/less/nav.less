@@ -1,0 +1,42 @@
+@import 'var';
+
+// 导航条
+.mpe-nav {
+    &-wrap {
+        height: @nav-height;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        border-top: 1px solid rgba(128, 128, 128, 0.1);
+        border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+        border-radius: 0;
+        z-index: 20;
+        background-color: #020202;
+        .clearfix();
+    }
+
+    &-tools {
+        list-style-type: none;
+    }
+
+    &-text {
+        color: #fff;
+        padding: 8px 11px;
+        span {
+            line-height: 24px;
+        }
+    }
+
+    &-select {
+        width: 110px;
+        padding-right: 16px;
+        select {
+            border: 0;
+            outline: 0;
+            background-color: transparent;
+            width: 100%;
+        }
+    }
+}

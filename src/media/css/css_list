@@ -1,4 +1,7 @@
 <link href="media/css/main.css" rel="stylesheet" />
+<link href="media/css/mixins.css" rel="stylesheet" />
+<link href="media/css/nav.css" rel="stylesheet" />
 <link href="media/css/preview.css" rel="stylesheet" />
 <link href="media/css/theme.css" rel="stylesheet" />
+<link href="media/css/tooltip.css" rel="stylesheet" />
 <link href="media/css/var.css" rel="stylesheet" />
