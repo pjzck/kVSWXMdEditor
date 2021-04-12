@@ -12,7 +12,11 @@ fs.readdirSync(less_path).forEach(function(name) {
     if (name.indexOf(".less") != -1) {
         const cmd = "lessc " + path.join(less_path, name) + " " + path.join(css_path, name.replace(".less", ".css"));
         console.log(cmd);
-        process.exec(cmd);
+        process.exec(cmd, function(err, stdout, stderr) {
+            if (err) {
+                console.error(err);
+            }
+        });
 
         files.push(util.format(relative_pattern, name.replace(".less", ".css")))
     }

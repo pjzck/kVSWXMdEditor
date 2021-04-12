@@ -1,4 +1,5 @@
 @import 'var';
+@import 'mixins';
 
 // 导航条
 .mpe-nav {
@@ -37,6 +38,30 @@
             outline: 0;
             background-color: transparent;
             width: 100%;
+            font-size: inherit;
+            height: 24px;
+            line-height: 24px;
+            position: relative;
+            z-index: 1;
+            margin-top: 8px;
+            display: table-cell;
+            background: #eee;
+            border: 0;
+            border-radius: 3px;
+        }
+    }
+
+    &-item {
+        float: left;
+        a {
+            height: 24px;
+            width: 24px;
+            display: block;
+            padding: 8px 11px;
+            font-weight: 600;
+            line-height: 20px;
+            color: #fff;
+            position: relative;
         }
     }
 }
