@@ -12,6 +12,7 @@
 			"args": [
 				"--extensionDevelopmentPath=${workspaceFolder}"
 			],
+			"preLaunchTask": "npm: publish"
 		},
 		{
 			"name": "Extension Tests",
@@ -21,6 +22,7 @@
 				"--extensionDevelopmentPath=${workspaceFolder}",
 				"--extensionTestsPath=${workspaceFolder}/test/suite/index"
 			],
+			"preLaunchTask": "publish"
 		}
 	]
 }

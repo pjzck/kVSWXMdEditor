@@ -1,11 +1,11 @@
 function makeRule(md) {
     return function replaceListItem() {
         md.renderer.rules.list_item_open = function replaceOpen() {
-            return '<li><section>';
+            return '<li><section>hahaha';
         };
 
         md.renderer.rules.list_item_close = function replaceClose() {
-            return '</section></li>';
+            return 'xixixi</section></li>';
         }
     }
 }

@@ -17,17 +17,15 @@ function makeRule(md) {
             // 第一个非 < 的 token
             // 最多只支持三层的 layer
             if (layer > 0) {
-                outerQuoteToken.attrJoin('class', 'multiquote-' + Math.min(3, layer));
+                outerQuoteToken.attrJoin('class', 'mpe-preview multiquote-' + Math.min(3, layer));
                 layer = 0;
             }
         }
     }
 }
 
-function apply(md) {
-    md.core.ruler.push('blockquote-class', makeRule(md));
-}
-
 module.exports = {
-    apply
+    apply : function(md) {
+        md.core.ruler.push('blockquote-class', makeRule(md));
+    }
 }

@@ -51,14 +51,19 @@
 				"command": "k-wx-markdown-editor.showPreview",
 				"title": "AAA"
 			}
-		]
+		],
+		"markdown.previewStyles": [
+			"./dist/media/main.css"
+		],
+		"markdown.markdownItPlugins": true
 	},
 	"scripts": {
 		"lint": "eslint .",
 		"pretest": "npm run lint",
 		"test": "node ./test/runTest.js",
 		"build": "node ./src/build/build.js",
-		"vscode:prepublish" : "webpack --mode production",
+		"publish": "node ./src/build/publish.js",
+		"vscode:prepublish": "webpack --mode production",
 		"compile": "webpack --mode none",
 		"watch": "webpack --mode none --watch"
 	},
@@ -82,6 +87,7 @@
 		"less": "^3.11.3",
 		"less-loader": "^6.2.0",
 		"mocha": "^8.2.1",
+		"string-format": "^2.0.0",
 		"typescript": "^4.1.3",
 		"vscode-page": "0.0.1",
 		"vscode-test": "^1.5.0",

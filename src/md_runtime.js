@@ -24,7 +24,7 @@ let md = markdownIt({
 });
 
 // md.use(list);
-mdBlockQuote.apply(md);
+// mdBlockQuote.apply(md);
 
 // md.use(mdBlockQuote);
 

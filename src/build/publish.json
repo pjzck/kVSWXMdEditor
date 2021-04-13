@@ -1,0 +1,9 @@
+{
+    "less" : [
+        "main.less"
+    ],
+    "markdown-it" : [
+        "block_quote",
+        "list"
+    ]
+}
